@@ -20,7 +20,7 @@ namespace ProjetGsb
             InitializeComponent();
             numCateg = idCateg;
             recuperationAntibiotiques();
-            /*  listeAntibiotique.ItemsSource = DataAntibio.getAntibiotiquesUneCateg(libCategorie).ToList();*/ // on récupère ici l'ensemble des antibiotiques par rapport à la catégorie précedemment sélectionnée.
+            
         }
         private async void recuperationAntibiotiques()
         {
@@ -29,7 +29,7 @@ namespace ProjetGsb
             List<Antibio.Models.Antibio> lesAntibiotiques = JsonConvert.DeserializeObject<List<Antibio.Models.Antibio>>(reponse);
             listeAntibiotique.ItemsSource = lesAntibiotiques;
         }
-
+        
         private async void listeAntibiotique_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             string DescriptionAntibio = (listeAntibiotique.SelectedItem as Antibio.Models.Antibio).nomAntibio; // on regarde par rapport à la liste des antibiotiques sélectionnés si ils font partie de la classe antibio et si c'est le cas on récupère le libelle
