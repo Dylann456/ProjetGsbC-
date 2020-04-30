@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Prescription et Dosage Antibiotiques"
+             x:Class="ProjetGsb.PageProduits">
+               
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Start" BackgroundColor="White" Spacing="20" Orientation="Vertical">
+            <Frame HorizontalOptions="CenterAndExpand" HasShadow="False">
+                <Label 
+                    x:Name="lblTitre" 
+                    Text="Liste des Antibiotiques : "
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="Title"
+                />
+            </Frame>
+
+            <ListView x:Name="listeAntibiotique"
+                      SelectedItem="OnSelectedItem"
+                      HorizontalOptions="Start"
+                      VerticalOptions="EndAndExpand"
+                ItemSelected="listeAntibiotique_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding nomAntibio}" WidthRequest="100" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Entry 
+                   x:Name="Zone_Recherche"
+                   Placeholder="Saisir un Poids" 
+                   FontSize="20"    
+                   FontAttributes="Italic" 
+                   HorizontalOptions="Fill" 
+                   Margin="0,30,0,0"
+            />
+
+            <Button x:Name="Button_Recherche"
+                    Text="Rechercher un Poids" 
+                    BackgroundColor="AntiqueWhite" 
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="100"
+                    WidthRequest="130" 
+                    TextColor="White" 
+                    Clicked="Button_Recherche_Clicked"
+                    />
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

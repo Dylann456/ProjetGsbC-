@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProjetGsb.MainPage"
+             Title="Accueil Projet Gsb">
+
+    <StackLayout Margin="20,35,20,20">
+        <!-- Place new controls here-->
+        <Frame HorizontalOptions="CenterAndExpand" HasShadow="True">
+            <Label    
+                    Text="Sélectionner la catégorie : "
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="Title"
+                />
+        </Frame>
+
+        <!--<Label 
+                x:Name="NombreAntibio" 
+                Text=""
+                 VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+               FontSize="Title"
+         />-->
+
+
+        <ListView x:Name="lstCategories" 
+                  SelectedItem="OnSelectedItem" 
+                  HorizontalOptions="Center" 
+                  VerticalOptions="Center"
+                  ItemSelected="OnSelection">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding libelle}" WidthRequest="150" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="50"></Label>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
